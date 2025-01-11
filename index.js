@@ -179,9 +179,11 @@ client.on("interactionCreate", async (interaction) => {
       filter,
       time: 60000,
     });
+	  
     collector.on("collect", (message) => {
     const guess = message.content.trim().toLowerCase();
     const isCorrect = nameParts.some((part) => guess.includes(part));
+	    
     if (isCorrect) {
     userData[userId].benar++;
     saveData();
@@ -192,14 +194,17 @@ client.on("interactionCreate", async (interaction) => {
     const embed = new EmbedBuilder()
         .setColor(0x0099ff)
         .setTitle("Benar!")
-        .setDescription("Benar! Dia adalah **" + randomMember.name + "**, Stats kamu:\n```js\n{ 'Benar': " + userData[userId].benar + ", 'Salah': " + userData[userId].salah + " }```")
+    	.setDescription("Dia adalah **" + randomMember.name + "**")
+    	.addFields({ name: 'Benar', value: userData[userId].benar.toString(), inline: false },
+        { name: 'Salah', value: userData[userId].salah.toString(), inline: true })
+    	.setThumbnail(`${imageBaseUrl}/assets/member/${randomMember.picture.split("/").pop()}`)
         .setTimestamp()
         .setFooter({
             text: "Created by Frenzy.",
             iconURL: "https://i.postimg.cc/sD8FZ00J/IMG-20241001-WA0064.jpg",
         });
     	interaction.followUp({ embeds: [embed] });
-   } else {
+    } else {
     userData[userId].salah++;
     saveData();
     const stats = {
@@ -209,12 +214,15 @@ client.on("interactionCreate", async (interaction) => {
     const embed = new EmbedBuilder()
         .setColor(0x0099ff)
         .setTitle("Salah!")
-        .setDescription("Salah! Dia adalah **" + randomMember.name + "**, Stats kamu:\n```js\n{ 'Benar': " + userData[userId].benar + ", 'Salah': " + userData[userId].salah + " }```")
+    	.setDescription("Dia adalah **" + randomMember.name + "**")
+    	.addFields({ name: 'Benar', value: userData[userId].benar.toString(), inline: false },
+        { name: 'Salah', value: userData[userId].salah.toString(), inline: true })
+    	.setThumbnail(`${imageBaseUrl}/assets/member/${randomMember.picture.split("/").pop()}`)
         .setTimestamp()
         .setFooter({
             text: "Created by Frenzy.",
             iconURL: "https://i.postimg.cc/sD8FZ00J/IMG-20241001-WA0064.jpg",
-	});
+        });
     interaction.followUp({ embeds: [embed] });
     }
     collector.stop();

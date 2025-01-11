@@ -116,20 +116,18 @@ client.on("interactionCreate", async (interaction) => {
     await interaction.deferReply(); // Menunda balasan
     const message = await getTop10Benar(); // Mendapatkan hasil secara asinkron
     await interaction.editReply(message); // Mengirim balasan setelah data siap
- }
+  }
 
   if (commandName === "guess") {
     const difficulty = interaction.options.getString('difficulty');
-    if (!difficulty) {
-        difficulty = "easy";
-	}
+    if (!difficulty) { difficulty = "easy"; };
     if (members.length === 0) {
       await interaction.reply(
         "Members data is not loaded yet. Please try again later."
       );
       return;
     }
-	const userId = interaction.user.id;
+    const userId = interaction.user.id;
     if (!userData[userId]) {
         userData[userId] = { strike: 0, longestStrike: 0, benar: 0, salah: 0 };
         saveData();
@@ -138,10 +136,10 @@ client.on("interactionCreate", async (interaction) => {
     // const randomMember = members[Math.floor(Math.random() * members.length)];
     const nonGraduatedMembers = members.filter(member => !member.graduated);
     const GraduatedMembers = members.filter(member => member.graduated);
-	let randomMember;
+    let randomMember;
     if (difficulty == "easy") {
     	randomMember = nonGraduatedMembers[Math.floor(Math.random() * nonGraduatedMembers.length)];
-	} else randomMember = GraduatedMembers[Math.floor(Math.random() * nonGraduatedMembers.length)];
+    } else randomMember = GraduatedMembers[Math.floor(Math.random() * nonGraduatedMembers.length)];
     const canvas = createCanvas(500, 500);
     const ctx = canvas.getContext("2d");
     try {
@@ -182,12 +180,10 @@ client.on("interactionCreate", async (interaction) => {
       time: 60000,
     });
     collector.on("collect", (message) => {
-      const guess = message.content.trim().toLowerCase();
-      const isCorrect = nameParts.some((part) => guess.includes(part));
-
+    const guess = message.content.trim().toLowerCase();
+    const isCorrect = nameParts.some((part) => guess.includes(part));
     if (isCorrect) {
     userData[userId].benar++;
-    // userData[userId].salah++;
     saveData();
     const stats = {
         'Benar': userData[userId].benar,
@@ -218,9 +214,9 @@ client.on("interactionCreate", async (interaction) => {
         .setFooter({
             text: "Created by Frenzy.",
             iconURL: "https://i.postimg.cc/sD8FZ00J/IMG-20241001-WA0064.jpg",
-        });
+	});
     interaction.followUp({ embeds: [embed] });
-	}
+    }
     collector.stop();
     });
     collector.on("end", (collected, reason) => {

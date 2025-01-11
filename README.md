@@ -19,7 +19,9 @@ Fanmade JKT48 Guessr Bot, Dibuat dengan Discord.js.
 # 🔗 Invite the bot
 - 🌟 [Discord Bot List](https://discordbotlist.com/bots/jkt48-guessr)
 - 🌟 [Discord.bots.gg](https://discord.bots.gg/bots/1322127650583478362)
-- 🌟 [Top.gg](https://top.gg/bot/1322127650583478362)
+
+- ![Discord Bots](https://top.gg/api/widget/1322127650583478362.svg)
+
 - 🌟 [Discordlist.gg](https://discordlist.gg/bot/1322127650583478362)
 
 # 👁️‍🗨️ Preview

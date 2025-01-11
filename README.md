@@ -10,6 +10,6 @@ Fanmade JKT48 Guessr Bot, Dibuat dengan Discord.js.
 
 # Installation 
 - Start it with
-- ```npm install```
+> ```npm install```
 - Try to run it with
-- ```npm start```
+> ```npm start```

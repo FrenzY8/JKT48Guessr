@@ -1,4 +1,11 @@
 {
+  "name": "JKT48Guessr",
+  "version": "1.0.0",
+  "description": "A fanmade Guessr Bot.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "discord.js": "*",
     "axios": "*",

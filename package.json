@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "discord.js": "*",
+    "axios": "*",
+    "canvas": "*",
+    "node-telegram-bot-api": "*"
+  }
+}

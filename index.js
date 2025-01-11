@@ -15,6 +15,7 @@ const {
 const fs = require("fs").promises; 
 const { createCanvas, loadImage } = require("canvas");
 const axios = require('axios');
+const config = require('./config.json');
 let userData = {};
 const dataFile = './database.json';
 
@@ -67,7 +68,6 @@ client.once("ready", async () => {
   await loadMembersData();
   loadData();
   setInterval(async () => { await saveData(); }, 5 * 60 * 1000);
-  monitorStreams();
   await registerCommands();
 });
 

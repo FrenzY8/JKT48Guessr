@@ -203,7 +203,7 @@ client.on("interactionCreate", async (interaction) => {
             iconURL: "https://i.postimg.cc/sD8FZ00J/IMG-20241001-WA0064.jpg",
         });
     	interaction.followUp({ embeds: [embed] });
-} else {
+   } else {
     userData[userId].salah++;
     saveData();
     const stats = {
